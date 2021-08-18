@@ -1,0 +1,72 @@
+{% extends './layout.html' %} {% block title%} Bienvenido {% endblock %} {%
+block body %}
+<div class="row">
+  <div class="col">{{ contenido | markdown}}</div>
+</div>
+<div class="row">
+  <div class="col">
+    <span class="text-info">Extensiones permitidas: {{ ext_permitidas }}</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col">&nbsp;</div>
+</div>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <form method="POST" enctype="multipart/form-data">
+      <div class="form-group row">
+        <input
+          id="file"
+          type="file"
+          name="file"
+          class="form-control"
+          file-model="oVista.ArchivoAnexo"
+          uploader="uploader"
+          ngf-select="CargarArchivos($files, oVista)"
+        />
+      </div>
+      <div class="row">
+        <div class="col">&nbsp;</div>
+      </div>
+      <div class="row" ng-show="Progress >= 0">
+        <div class="col">
+          <p>Proceso de carga del archivo.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div id="dvProgress" class="progress" ng-show="Progress >= 0"></div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col">&nbsp;</div>
+</div>
+<div class="row">
+  <div class="col text-center">
+    <h2>Listado de archivos cargados</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <table class="table table-striped table-responsive-sm small table-hover">
+      <thead>
+        <tr>
+          <th>Nombre</td>
+          <th>Hash</td>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="x in listado track by $index">
+          <td>[[ x[0] ]]</td>
+          <td ng-class="{'table-danger': x[2]}" >[[ x[1] ]]</td>
+          <td><button type="button" class="btn btn-outline-danger" ng-click="eliminar([[ x[0] ]])"><span class="bi bi-recycle"></span></button> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

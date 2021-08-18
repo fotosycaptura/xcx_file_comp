@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Comparador de Archivos - {% block title%} {% endblock %}</title>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='plugins/alertifyjs/css/alertify.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='plugins/Angularjs/angular-material.min.css') }}"
+    />
+    <script src="{{ url_for('static', filename='plugins/Angularjs/angular.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='plugins/alertifyjs/alertify.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='plugins/angular-file-upload/ng-file-upload.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='appx/admTesting.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"
+          ><img
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            class="logo"
+            alt="Logo CNED"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link disabled"
+                href="#"
+                tabindex="-1"
+                aria-disabled="true"
+                >Próximamente</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="container-md"
+      id="appTesting"
+      ng-app="appTesting"
+      ng-controller="appxTestingController"
+    >
+      <section class="section">{% block body %} {% endblock %}</section>
+    </div>
+  </body>
+</html>
